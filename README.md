@@ -1,0 +1,2 @@
+# 10janvier
+Exercice ruby
