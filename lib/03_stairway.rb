@@ -14,8 +14,10 @@ def lancement_jeu
             @marche+=1
             puts "Bravo, tu avance d'una marche et tu es désormais à la marche #{@marche}"        
         when 1
-            @marche-=1
+            @marche-=1 
             puts "Dommage, tu recule d'une marche et tu es désormais à la marche #{@marche}"
+            
+           
         else
             puts "Lancer sans conséquences, tu restes à la marche  #{@marche}"
         end
@@ -37,17 +39,20 @@ def lancement_jeu
         
     end
     
+
     
     
-    def average_finish_time
+    def average_finish_time (number_of_tests)
         @nbr_total_lance_des=0
-        100.times do perform 
+        
+        number_of_tests.times do perform 
             @nbr_total_lance_des+=@nbr_lancer_des
         end
-    @nbr_moyen=@nbr_total_lance_des/100
-    puts "Le nombre moyen de lancers nécessaires pour monter l'escalier sur 100 parties à été de  #{@nbr_moyen}"
+        
+        @nbr_moyen=@nbr_total_lance_des/number_of_tests
+        
+        puts "Le nombre moyen de lancers nécessaires pour monter l'escalier sur #{number_of_tests} parties à été de  #{@nbr_moyen}"
     end
     
-    average_finish_time
-    
+    average_finish_time (500)
     
