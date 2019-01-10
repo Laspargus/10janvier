@@ -1,2 +1,6 @@
 # 10janvier
-Exercice ruby
+Contributeur 
+Lionel Debauge (pseudo slack lionel)
+Maxime Speroni (pseudo slack maxime)
+
+En vous remerciant
