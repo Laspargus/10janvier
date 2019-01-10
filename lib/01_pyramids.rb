@@ -30,7 +30,7 @@ end
 
 end
 
-half_pyramid 
+#half_pyramid 
 
 
 #PYRAMIDE DE GIZEH
@@ -69,7 +69,7 @@ end
 
 end
 
-full_pyramid
+#full_pyramid
 
 #ALEXANDRIE ALEXANDRA
 
@@ -82,27 +82,29 @@ def wtf_pyramid
 	number_of_floors = gets.to_i 
 	# fonctionne également avec gets.chomp.to_i
 
+	half_floors = number_of_floors/2
+
+	puts half_floors
 
 	puts "Voici la pyramide :"
 
-	if number_of_floors < 26
-	number_of_floors.times do |i|
-		
-		
 
-		blankspace = " " * (number_of_floors - (i + 1))
+		number_of_floors.times do |i|
 
-		number_hastag = "#" * (i + 1)
-		
-		hastagsup = "#" * i
-		
-		puts "#{blankspace}#{number_hastag}#{hastagsup}"
-		
+
+			blankspace = " " * (number_of_floors - (i + 1))
+
+			number_hastag = "#" * (i + 1)
+			
+			hastagsup = "#" * i
+			
+			puts "#{blankspace}#{number_hastag}#{hastagsup}"
+
+			
+	
 	end
-
-	else puts "Désolé mais une pyramide ne peut avoir que 25 étages maximum."
 		
-
-	end 
 
 end
+
+wtf_pyramid
