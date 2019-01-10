@@ -1,58 +1,65 @@
-def lancement_jeu
-    @marche=0
-    @nbr_lancer_des=0
+    
+    #Cette méthode initailise la marche à 0 et le nombre de lancer de dés à 0
+    def gamestart
+        @stairs=0
+        @number_dice=0
     end
     
     
-    def lancer_des ()
+
+    #Cette méthode simule un lancé de dés et incrémente le nombre de marche en fonction du résultat du lancé de dés
+    def launch_dice ()
     
-        @resultat=rand(1..6)
-        puts "Le résultat de votre lancer de dé est #{@resultat}"
+        #Le résultat du lancé de dés est stocké dans la variable @dice_result
+        @dice_result=rand(1..6)
+        puts "Le résultat de votre lancer de dé est #{@dice_result}"
         
-        case @resultat
+        #la méthode case permet de modifier la valeur de stairs en fonction du résultat
+        case @dice_result
         when 5 , 6 
-            @marche+=1
-            puts "Bravo, tu avance d'una marche et tu es désormais à la marche #{@marche}"        
+            @stairs+=1
+            puts "Bravo, tu avance d'una marche et tu es désormais à la marche #{@stairs}"        
         when 1
-            @marche-=1 
-            puts "Dommage, tu recule d'une marche et tu es désormais à la marche #{@marche}"
-            
-           
+            @stairs-=1 
+            puts "Dommage, tu recule d'une marche et tu es désormais à la marche #{@stairs}"
         else
-            puts "Lancer sans conséquences, tu restes à la marche  #{@marche}"
+            puts "Lancer sans conséquences, tu restes à la marche  #{@stairs}"
         end
     
-        @nbr_lancer_des+=1
+        #J'incrémente le nombre de lancer de dés. Cela me permet de connaitre à la fin le nombre de lancer de dés d'une partie
+        @number_dice+=1
         
     end
     
     
-    
+    #la méthode perform initialise le jeu puis répète l'action de lancé de dés jusqu'à atteindre la marche 10
     def perform 
-        lancement_jeu
-            until @marche==10
-            lancer_des
+        gamestart
+            until @stairs==10
+            launch_dice
             end
         
         puts "Bravo vous avez enfin atteint la 10ème marche avec succés !"
-        puts "#{@nbr_lancer_des} lancers de dés ont été necessaires pour atteindre ce magnifique objectif"
+        puts "#{@number_dice} lancers de dés ont été necessaires pour atteindre ce magnifique objectif"
         
     end
     
 
     
-    
+    #la méthode average_finish_time prend comme attribut le nombre de test souhaités. 
     def average_finish_time (number_of_tests)
-        @nbr_total_lance_des=0
+        @total_number_dice_launch=0
         
         number_of_tests.times do perform 
-            @nbr_total_lance_des+=@nbr_lancer_des
+            @total_number_dice_launch+=@number_dice
         end
         
-        @nbr_moyen=@nbr_total_lance_des/number_of_tests
+        @average_launch_per_game=@total_number_dice_launch/number_of_tests
         
-        puts "Le nombre moyen de lancers nécessaires pour monter l'escalier sur #{number_of_tests} parties à été de  #{@nbr_moyen}"
+        puts "Le nombre moyen de lancers nécessaires pour monter l'escalier sur #{number_of_tests} parties à été de  #{@average_launch_per_game}"
     end
     
+
+    #On lance notre test sur 500 lancers. Mais on peut tester davantage d'itération. 
     average_finish_time (500)
     
