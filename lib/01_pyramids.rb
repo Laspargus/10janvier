@@ -1,74 +1,68 @@
 
-#MOITIE DE PYRAMIDE
+#HALF PIRAMIDE
 
 def half_pyramid
 
-puts "Salut bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
-print ">"
+	puts "Salut bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
+	print ">"
 
-number_of_floors = gets.to_i 
-# fonctionne également avec gets.chomp.to_i
+	number_of_floors = gets.to_i 
+	# fonctionne également avec gets.chomp.to_i
 
 
-puts "Voici la pyramide :"
+	puts "Voici la pyramide :"
 
-if number_of_floors < 26
-number_of_floors.times do |i|
-
-	blankspace = " " * (number_of_floors - (i + 1))
-
-	number_hastag = "#" * (i + 1)
+		if number_of_floors < 26
+			number_of_floors.times do |i|
+			blankspace = " " * (number_of_floors - (i + 1))
+			number_hastag = "#" * (i + 1)
 	
-	puts "#{blankspace}#{number_hastag}"
+		puts "#{blankspace}#{number_hastag}"
 	
-end
+		end
 
-else puts "Désolé mais une pyramide ne peut avoir que 25 étages maximum."
-	
+		else 
+		puts "Désolé mais une pyramide ne peut avoir que 25 étages maximum."
+		end 
 
-end 
-
-end
-
-#half_pyramid 
+	end
+	#half_pyramid 
 
 
 
 
 
-#PYRAMIDE DE GIZEH
+
+
+
+###################################################################################
+								#PYRAMIDE DE GIZEH
+####################################################################################
+
 
 
 def full_pyramid
 
 	puts "Salut bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
-print ">"
+	print ">"
 
-number_of_floors = gets.to_i 
-# fonctionne également avec gets.chomp.to_i
+	number_of_floors = gets.to_i 
+	# fonctionne également avec gets.chomp.to_i
 
 
-puts "Voici la pyramide :"
-
-if number_of_floors < 26
-number_of_floors.times do |i|
+	puts "Voici la pyramide :"
 	
-	
+	#Condition sur le nombre d'étages de la pyramide qui ne peux excéder 25
+	if number_of_floors < 26
+		number_of_floors.times do |i|
+		blankspace = " " * (number_of_floors - (i + 1))
+		hastag = "#" * (2*i+1)
+		puts "#{blankspace}#{hastag}"
+	end
 
-	blankspace = " " * (number_of_floors - (i + 1))
-
-	number_hastag = "#" * (i + 1)
-	
-	hastagsup = "#" * i
-	
-	puts "#{blankspace}#{number_hastag}#{hastagsup}"
-	
-end
-
-else puts "Désolé mais une pyramide ne peut avoir que 25 étages maximum."
-	
-
-end 
+	else 
+		puts "Désolé mais une pyramide ne peut avoir que 25 étages maximum."
+	end 
 
 end
 
@@ -77,27 +71,23 @@ end
 
 
 
-
-
-#ALEXANDRIE ALEXANDRA
-
+###################################################################################
+							#ALEXANDRIE ALEXANDRA
+####################################################################################
 
 def wtf_pyramid
 
 		puts "Salut bienvenue dans ma super pyramide ! Combien d'étages veux-tu ?"
 	print ">"
 
-
-
 	number_of_floors = gets.to_i 
 	# fonctionne également avec gets.chomp.to_i
 
 
-#condition pour tester sir le nombre d'étage est pair
-if number_of_floors.even? 
+	#condition pour tester si le nombre d'étage est pair
+	if number_of_floors.even? 
 	puts "Ce jeu ne fonctionne pas avec les nombres pairs"
-
-else
+	else
 
 	half_floors = (number_of_floors/2)+1
 	floor_under_half=half_floors -1
@@ -113,26 +103,23 @@ else
 		#Premiere moitié de pyramide
 		half_floors.times do |i|
 				blankspace = " " * (number_of_floors - (i + 1))
+				hashtag="#"*((2*i)+1)
+				#On affiche des espaces puis des hashtags
+				puts "#{blankspace}#{hashtag}"
+				
 
-				number_hastag = "#" * (i + 1)
-			
-				hastagsup = "#" * i
-			
-				puts "#{blankspace}#{number_hastag}#{hastagsup}"
 		end
 
 		#Deuxième moitié de pyramide
 		floor_under_half.times do |i|
-		
 				blankspace = " " * (half_floors + i)
-		
 				number_hastag = "#" * (number_of_floors-i-(2+i))
-		
+				#on affiche des espaces puis des hastags
 				puts "#{blankspace}#{number_hastag}"
 		end
 
 
-end
+	end
 		
 
 end
