@@ -46,6 +46,7 @@
     
 
     
+    
     #la méthode average_finish_time prend comme attribut le nombre de test souhaités. 
     def average_finish_time (number_of_tests)
         @total_number_dice_launch=0
